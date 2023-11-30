@@ -1,1 +1,44 @@
 /*  your css code here. If applicable */
+/* styles.css */
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f2f2f2;
+  margin: 0;
+}
+
+table {
+  margin-top: 20px;
+}
+
+th, td {
+  text-align: center;
+}
+
+th {
+  background-color: #343a40;
+  color: #fff;
+}
+
+td {
+  background-color: #f8f9fa;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

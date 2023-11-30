@@ -1,3 +1,5 @@
+// script.js
+
 // Array of API URLs to fetch data from
 const apiUrls = [
   "https://jsonplaceholder.typicode.com/todos/1",
@@ -12,4 +14,34 @@ const apiUrls = [
   "https://jsonplaceholder.typicode.com/todos/10",
 ];
 
-// You can write your code here
+// Function to fetch data using Promise.all
+function fetchDataUsingPromiseAll() {
+  const startTime = performance.now();
+
+  Promise.all(apiUrls.map(url => fetch(url)))
+    .then(() => {
+      const endTime = performance.now();
+      const timeTaken = endTime - startTime;
+      document.getElementById("output-all").textContent = timeTaken.toFixed(2);
+    })
+    .catch(error => console.error(error));
+}
+
+// Function to fetch data using Promise.any
+function fetchDataUsingPromiseAny() {
+  const startTime = performance.now();
+
+  Promise.any(apiUrls.map(url => fetch(url)))
+    .then(() => {
+      const endTime = performance.now();
+      const timeTaken = endTime - startTime;
+      document.getElementById("output-any").textContent = timeTaken.toFixed(2);
+    })
+    .catch(error => console.error(error));
+}
+
+// Trigger the functions on button click
+document.getElementById("btn").addEventListener("click", () => {
+  fetchDataUsingPromiseAll();
+  fetchDataUsingPromiseAny();
+});
